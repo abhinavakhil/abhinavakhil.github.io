@@ -13,9 +13,8 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     </head>
 <body>
-  
-      
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" id="mainnav">
                 <a class="navbar-brand" href="#">@ABHINAV AKHIL</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                   <span class="navbar-toggler-icon"></span>
@@ -32,7 +31,7 @@
                       <a class="scroll nav-link" href="#SKILLS">SKILLS</a>
                     </li>
                     <li class="nav-item">
-                            <a class="scroll nav-link" href="#EDUCATION ">EDUCATION & EXPERIENCE</a>
+                            <a class="scroll nav-link" href="#EDUCATION ">EDUCATION</a>
                           </li> 
                           <li class="nav-item">
                              <a class="scroll nav-link" href="#PORTFOLIO">PORTFOLIO</a>
@@ -44,14 +43,20 @@
                 </div>  
               </nav>-->
            <!--home section--> 
-       <div class="row" id="HOME">
-        <div class="container-fluid bg-1 text-center"> 
-          
-          <h3 class="margin">Hi  I,M</h3>     
-                <img src="image/PicsArt_08-13-07.23.19.jpg" class="img-circle margin" width="350px" height="350px">
-                <h3 >ABHINAV AKHIL</h3>
-                <h5>frontend developer</h5>
-
+       <div class="row" id="HOME" style="height:98%">
+        <div class="container-fluid bg-1 "> 
+   <div class="img-comp-container">
+        <div class="img-comp-img">
+    <img src="image/PicsArt_08-13-07.23.19.jpg" width="300" height="300" class="img-circle img-responsive ">
+  </div>
+  <div class="img-comp-img img-comp-overlay">
+    <img src="image/PicsArt_07-26-09.34.45.jpg" width="300" height="300" class="img-circle img-responsive ">
+  </div>
+</div>        <div class="container " style="margin-top:130px;">
+                <h3 class="text-center">ABHINAV AKHIL</h3>
+                 <hr class="star-light">
+                <h5 class="text-center font-weight-light mb-0">Frontend Developer -  User Experience Designer - Video Editor</h5>
+              </div>
         </div>
         </div>
         <!--about-->
@@ -446,7 +451,7 @@
 </div>
 </div>
 <!--contact ends-->
-<div class="container-fluid text-center footericon">
+<div class="container-fluid text-center footericon ">
   <div class="container">
     <ul>
       <li><a href="https://www.facebook.com/profile.php?id=100004579636428"><i class="fab fa-facebook"></i></a></li>
@@ -454,7 +459,9 @@
       <li><a href="https://www.linkedin.com/in/abhinavakhil55555/"><i class="fab fa-linkedin"></i></a></li>
     </ul>
   </div>
-  <h5><i class="far fa-copyright"></i>Abhinav akhil 2018 | All Right Reserved</h5>
+  <div>
+  <h5 style="color:#fff"><i class="far fa-copyright"></i>Abhinav akhil 2018 | All Right Reserved</h5>
+</div>
 </div>
 <!--jquery for smooth scrolling-->
 <script>
@@ -523,7 +530,7 @@ function w3RemoveClass(element, name) {
 }
 
 
-// Add active class to the current button (highlight it)
+
 var btnContainer = document.getElementById("myBtnContainer");
 var btns = btnContainer.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++) {
@@ -534,6 +541,85 @@ for (var i = 0; i < btns.length; i++) {
   });
 }
 </script>
+<script>
+function initComparisons() {
+  var x, i;
+  
+  x = document.getElementsByClassName("img-comp-overlay");
+  for (i = 0; i < x.length; i++) {
+    
+    compareImages(x[i]);
+  }
+  function compareImages(img) {
+    var slider, img, clicked = 0, w, h;
+   
+    w = img.offsetWidth;
+    h = img.offsetHeight;
+    
+    img.style.width = (w / 2) + "px";
+    
+    slider = document.createElement("DIV");
+    slider.setAttribute("class", "img-comp-slider");
+    
+    img.parentElement.insertBefore(slider, img);
+    
+    slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+    slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+    
+    slider.addEventListener("mousedown", slideReady);
+    
+    window.addEventListener("mouseup", slideFinish);
+    
+    slider.addEventListener("touchstart", slideReady);
+    
+    window.addEventListener("touchstop", slideFinish);
+    function slideReady(e) {
+      
+      e.preventDefault();
 
+      clicked = 1;
+      
+      window.addEventListener("mousemove", slideMove);
+      window.addEventListener("touchmove", slideMove);
+    }
+    function slideFinish() {
+      
+      clicked = 0;
+    }
+    function slideMove(e) {
+      var pos;
+      
+      if (clicked == 0) return false;
+      
+      pos = getCursorPos(e)
+      
+      if (pos < 0) pos = 0;
+      if (pos > w) pos = w;
+      
+      slide(pos);
+    }
+    function getCursorPos(e) {
+      var a, x = 0;
+      e = e || window.event;
+      
+      a = img.getBoundingClientRect();
+      
+      x = e.pageX - a.left;
+      
+      x = x - window.pageXOffset;
+      return x;
+    }
+    function slide(x) {
+      
+      img.style.width = x + "px";
+      
+      slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+    }
+  }
+}
+</script>
+<script>
+initComparisons();
+</script>
 </body>
 </html>
