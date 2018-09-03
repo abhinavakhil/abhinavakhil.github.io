@@ -2,7 +2,17 @@ body{
 	overflow-x: hidden;
 	
 }
+#mainnav{
+  
+   padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-weight: 700;
+  font-family: 'Montserrat';
+}
 
+#mainNav .navbar-nav li.nav-item a.nav-link:hover {
+  color: #18BC9C;
+}
 #photo{
 	
 	margin-left:150px;
@@ -155,7 +165,7 @@ h1 {
   display: block;
 }
 .footericon{
-background-color:yellow;
+background: black;
 padding:40px;
 }
 ul li{
@@ -184,7 +194,7 @@ ul li{
   	border: 5px solid grey;
   	margin-right:440px;
   	font-size:40px;
-
+     
   }
   /* modal*/
  h4.modal-title{
@@ -255,4 +265,101 @@ b, strong {
 .mediahere{
 font-size:15px;
 }
+
+* {box-sizing: border-box;}
+
+.img-comp-container {
+  position: relative;
+  height: 200px; /*should be the same height as the images*/
+}
+
+.img-comp-img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow:hidden;
+}
+
+.img-comp-img img {
+  display:block;
+  vertical-align:middle;
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index:9;
+  cursor: ew-resize;
+  /*set the appearance of the slider:*/
+  width: 40px;
+  height: 40px;
+  background-color: #2196F3;
+  opacity: 0.7;
+  border-radius: 50%;
+}
+hr.star-light
+{max-width:15rem;
+  padding:0;
+  text-align:center;
+  border:none;border-top:solid .25rem;
+  margin-top:2.5rem;margin-bottom:2.5rem;
+  margin-left:auto;margin-right:auto
+}
+.star-light:after
+{position:relative;
+  top:-.8em;
+  display:inline-block;
+  padding:0 .25em;
+  content:'\f005';
+  font-family:FontAwesome;
+  font-size:2em
+}
+  hr.star-light{
+    border-color:#fff
+    }
+    hr.star-light:after
+    {
+      color:#fff;
+      background-color:#18bc9c
+    }
+  /*media queries */
+@media only screen and (min-width: 992px) {
+    .img-comp-container{
+      margin-left:500px;
+    }
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) {
+    .img-comp-container{
+      margin-left:500px;
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .img-comp-container{
+      margin-left:30px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .img-comp-container{
+      margin-left:30px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width:800px) {
+    .img-comp-container{
+      margin-left:500px;
+    }
+} 
+
+
+
+@media only screen and (max-width: 600px) {
+    .mediahere{
+      font-size:14px;
+    }
 
